@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MB.ltd</title>
+    <link rel="stylesheet" href="rubik.css">
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            text-decoration: none;   
+            color: black; 
+        }
+        *::selection{
+            background-attachment: black;
+            color: purple;
+        }
+        body{
+            padding: 0px;
+            background-image:linear-gradient (4 lavender, white, #B898D7);
+            overflow-x: hidden;
+        }
+        section{
+            display: flex;
+            flex-direction: column;
+            
+        }
+        header{
+            margin-top: 20px;
+            border:1px solid transparent;
+            width:100%;
+            height: 220px;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        nav{
+            display: flex;
+            align-items: center;  
+        }
+        nav a{
+            margin-right: 18px;
+        }
+        .logo{
+            height: 100%;
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid black;
+        }
+        .service-con{
+            margin: 30px;
+            margin-top: 40px;
+            border: 1px solid transparent;
+            aspect-ratio: 5/2;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 2em;
+            background-size: cover;
+            background-position: center;
+                
+        }
+        .service-con > div{
+            background-size: 100%;
+            background-position: center;
+            transition: all .3s ease-in-out;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 25pt;
+        }
+        .serv1{
+           background-image: url(serv1.png); 
+        }
+        .serv2{
+           background-image: url(serv2.jpg); 
+        }
+        .serv3{
+           background-image: url(serv3.jpg); 
+        }
+        .service-con > div:hover{
+            background-size: 115%;
+        }
+        .service-con > div:hover > p{
+            opacity: 0;   
+        }
+        .service-con > div::after{
+            content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi repellat a veniam est quaerat necessitatibus accusamus odio mollitia nulla vero!';
+            position: absolute;
+            color: white;
+            font-family: rubik-light;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            font-size: 17pt;
+            padding: 20px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.479);
+            opacity: 0;
+            transition: opacity .6s ease-in-out;
+            box-sizing: border-box;
+        }
+        .service-con > div:hover::after{
+            opacity: 1;
+        }
+        .service-text{
+            width: 75%;
+            transition: all .6s ease-in-out;
+            text-align: center;
+            font-family: rubik-semibold;
+        }
+        .service-text::before{
+            content: '';
+            display: block;
+            width: 100%;
+            height: 3px;
+            border-radius: 5px;
+            background-color: white;
+        }
+        .service-text::after{
+            content: '';
+            display: block;
+            width: 100%;
+            height: 3px;
+            border-radius: 5px;
+            background-color: white;    
+        }
+        .btn-con{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        .button{
+            width:170px;
+            height: 48px;
+            background: transparent;
+            border: 3px solid black;
+            border-radius:1px ;
+        }
+        h2{
+            text-align: center;
+            box-sizing: border-box;
+            margin-top: 50px;
+            padding-left: 100px;
+            padding-right: 100px;
+            margin-bottom: 10px;
+        }
+        .filler1{
+            text-align: center;
+            box-sizing: border-box;
+            padding-left: 130px;
+            padding-right: 130px;
+        }
+        .board{
+            margin-top: 80px;
+            background-image: url(servbackscroll.jpg);
+            width: 100%;
+            min-height: 500px;
+            background-attachment: scroll;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            position: relative;
+        }
+        .board::after{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.461);
+        }
+        .griddy{
+            margin-top: 50px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            width: 70%;
+            background-color: transparent;
+            grid-gap: 2em;
+        }
+        .gridel{
+            width: 100%;
+            aspect-ratio: 4/3;
+            background-image:url(servback.jpg) ;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            transition: all .3s ease;
+            position: relative;
+        }
+        .gridel:hover{
+            background-size: 120%;
+        }
+        .gridel::before{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.438);
+        }
+        .gridel::after{
+            content: 'lorem ispum dolor sit amet figan solom intli';
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.438);
+            opacity: 0;
+            transition: all .5s ease;
+        }
+        .gridel:hover::after{
+            opacity: 1;
+        }
+        footer{
+            height: 450px;
+            background: black;
+            margin-top: 100px;
+        }
+        .review{
+            padding-left:150px ;
+            padding-right:150px ;
+            box-sizing: border-box;
+        }
+        ::-webkit-scrollbar{
+            background: inherit;
+            width: 10px;
+        }
+        ::-webkit-scrollbar-thumb{
+            background-color: purple;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="left-nav">
+            <a href="#">ABOUT</a>
+            <a href="#">REQUEST A PROPOSAL</a>
+        </nav>
+        <div class="logo">logo</div>
+        <nav class="right-nav">
+            <a href="#">CLIENT TESTIMONIALS</a>
+            <a href="#">SERVICES</a>
+        </nav>
+    </header>
+
+    <section>
+        <div class="service-con">
+            <div class="serv1">
+                <p class="service-text">WEB<br>REPLICATION</p>
+            </div>
+            <div class="serv2">
+                <p class="service-text">WEB<br>DEVELOPMENT</p>
+            </div>
+            <div class="serv3">
+                <p class="service-text">WEB<br>DESIGN</p>
+            </div>
+        </div>
+        <div class="btn-con">
+            <button class="button">Lorem ipsum</button>
+        </div>
+    </section>
+
+    <section>
+        <h2>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius consequatur accusantium exercitationem laudantium dolorem atque molestiae pariatur nisi quibusdam dolores.
+        </h2>
+        <p class="filler1">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae temporibus quos rerum eos sint nisi laboriosam animi. Minus, suscipit vel! Nulla, aspernatur explicabo corporis molestias quaerat quibusdam nostrum quidem veritatis cumque dolorem dolores cum mollitia.
+        </p>
+
+    </section>
+
+    <section>
+        <div class="board"></div>
+    </section>
+
+    <section style="display: flex; flex-direction: column; align-items: center; margin-top: 80px;">
+        <p class="txt">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias rerum quam obcaecati minima excepturi iusto reiciendis culpa, fugiat facere nulla.
+        </p>
+
+        <div class="griddy">
+            <div class="gridel"></div>
+            <div class="gridel"></div>
+            <div class="gridel"></div>
+            <div class="gridel"></div>
+            <div class="gridel"></div>
+            <div class="gridel"></div>
+        </div>
+
+        <p class="txt2" style="margin-top: 50px;">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia at exercitationem, ipsa sequi quae a facere temporibus dignissimos accusantium non!
+        </p>
+    </section>
+
+    <section style="display: flex; flex-direction: column; align-items: center; margin-top: 80px;">
+        <div class="board board2"></div>
+        
+        <p class="review" style="margin-top: 40px; text-align: center;">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem perspiciatis voluptatum odio totam quisquam inventore vitae fugiat ullam omnis perferendis. Enim neque dignissimos reprehenderit voluptate eveniet aliquid delectus praesentium a nulla et. At veniam, aperiam consequatur reprehenderit illo saepe tenetur natus, voluptatem ullam ducimus vero consequuntur accusantium accusamus magnam ipsam?
+        </p>
+        <h3 class="reviewer" style="margin-top: 20px;">-Mario Ibok</h3>
+    </section>
+
+    <footer>
+    </footer>
+</body>
+</html>
